@@ -9,13 +9,12 @@
            http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<bean id="starbucks" class="com.global.spring.aop.Starbucks"></bean>
-	<bean id="brewTimer" class="com.global.spring.aop.BrewTimer"></bean>
-	
+	<bean id="brewTimer" class="com.global.spring.aop.BrewTimer"></bean>	
 	<aop:config>
 		<aop:aspect ref="brewTimer">
 			<aop:pointcut id="starbucksBrew" expression="execution(* com.global.spring.aop.Starbucks.*(..))"/>
 			<aop:around method="check" pointcut-ref="starbucksBrew"/>
 		</aop:aspect>
 	</aop:config>
-
+	
 </beans>
